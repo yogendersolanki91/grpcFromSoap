@@ -395,17 +395,14 @@ if __name__ == "__main__":
     except ImportError:
         print('Error: zeep is not installed! use pip install zeep')
         exit(1);
-    import subprocess
     if len(sys.argv) < 3:
-        file = "vasaService.wsdl"
-        endpoint = "vasaServiceHttpSoap12Endpoint"
+        print('Usage: python3 convert.py wsdl binding')
+        exit(1)
     else:
         file = sys.argv[1]
         endpoint  = sys.argv[2]
-    
+    import subprocess
     alltext = subprocess.getoutput("python -mzeep {}".format(file))
-    
-    #alltext = open('zeep.txt',mode='r').read()
     zeepTree = parse_indentation(alltext);
     #resolve packages
     allpackage = zeepTree[0];
