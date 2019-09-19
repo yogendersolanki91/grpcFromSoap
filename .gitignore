@@ -1,0 +1,5 @@
+
+vasaService.wsdl
+test.py
+*.proto
+.vscode/settings.json
